@@ -1,6 +1,7 @@
-body, ul{
-    margin : 0px;
-    padding : 0px;
+body,
+ul {
+    margin: 0px;
+    padding: 0px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
@@ -38,6 +39,33 @@ body, ul{
 
 /* CONTENU PAGES */
 
-h1{
+h1 {
     padding-left: 40px;
+    width: 100%;
+    text-align: center;
+    margin: 50px 0px 50px 0px;
+}
+
+h2 {
+    margin-bottom: 50px;
+}
+
+/* Connexion */
+form button a {
+    color: white !important;
+}
+
+.btn.btn-primary.btn-block {
+    background: #30c130;
+    border: none;
+}
+
+.inscription {
+    background: rgb(71, 119, 0) !important;
+}
+
+/* Actualités */
+
+.custom-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
