@@ -3,16 +3,27 @@
 namespace App\Classes;
 
 use DateTime;
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+#[ORM\Entity()]
 class Actualite
 {
+    #[ORM\Id]
+    #[ORM\GeneratedValue()]
+    #[ORM\Column(type: 'integer')]
     private int $id;
+    #[ORM\Column()]
     private string $titre;
+    #[ORM\Column()]
     private string $contenu;
+    #[ORM\Column(type: 'date')]
     private DateTime $datePublication;
+    #[ORM\Column()]
     private string $auteur;
-    private string $url; // L'URL de l'actualité
-    private string $imageUrl; // L'URL de l'image associée à l'actualité
+    #[ORM\Column()]
+    private string $url;
+    #[ORM\Column()]
+    private string $imageUrl;
 
     public function __construct(string $titre, string $contenu, DateTime $datePublication, string $auteur, string $url, string $imageUrl)
     {

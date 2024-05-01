@@ -4,13 +4,24 @@ namespace App\Classes;
 
 use DateTime;
 
+use Doctrine\ORM\Mapping as ORM;
+#[ORM\Entity()]
 class Utilisateur {
+    #[ORM\Id]
+    #[ORM\GeneratedValue()]
+    #[ORM\Column(type: 'integer')]
     private int $id;
+    #[ORM\Column()]
     private string $nom;
+    #[ORM\Column()]
     private string $prenom;
+    #[ORM\Column(type: 'date')]
     private DateTime $dateNaissance;
+    #[ORM\Column()]
     private string $email;
+    #[ORM\Column()]
     private string $motDePasse;
+    #[ORM\Column(type: 'array')]
     private array $photos;
 
     public function __construct(string $nom, string $prenom, datetime $dateNaissance, string $email, string $motDePasse){
