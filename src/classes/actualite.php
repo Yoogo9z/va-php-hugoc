@@ -2,7 +2,7 @@
 
 namespace App\Classes;
 
-use DateTime;
+// use string;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -17,8 +17,8 @@ class Actualite
     private string $titre;
     #[ORM\Column()]
     private string $contenu;
-    #[ORM\Column(type: 'date')]
-    private DateTime $datePublication;
+    #[ORM\Column(type: 'string')]
+    private string $datePublication;
     #[ORM\Column()]
     private string $auteur;
     #[ORM\Column()]
@@ -27,19 +27,17 @@ class Actualite
     private string $imageUrl;
 
         
-    #[ORM\ManyToMany(targetEntity : Utilisateur ::class, mappedBy : 'actualiteList')]
-    private Collection $utilisateurList;
-
-
-    public function __construct(string $titre, string $contenu, DateTime $datePublication, string $auteur, string $url, string $imageUrl)
-    {
-        $this->titre = $titre;
-        $this->contenu = $contenu;
-        $this->datePublication = $datePublication;
-        $this->auteur = $auteur;
-        $this->url = $url;
-        $this->imageUrl = $imageUrl;
-    }
+    #[ORM\ManyToMany(targetEntity: Utilisateur::class, mappedBy: 'actualiteList')]
+    private Collection $utilisateurList; 
+    // public function __construct(string $titre, string $contenu, string $datePublication, string $auteur, string $url, string $imageUrl)
+    // {
+    //     $this->titre = $titre;
+    //     $this->contenu = $contenu;
+    //     $this->datePublication = $datePublication;
+    //     $this->auteur = $auteur;
+    //     $this->url = $url;
+    //     $this->imageUrl = $imageUrl;
+    // }
     /**
      * Get the value of id
      */
@@ -97,7 +95,7 @@ class Actualite
     /**
      * Get the value of datePublication
      */
-    public function getDatePublication(): DateTime
+    public function getDatePublication(): string
     {
         return $this->datePublication;
     }
@@ -105,7 +103,7 @@ class Actualite
     /**
      * Set the value of datePublication
      */
-    public function setDatePublication(DateTime $datePublication): self
+    public function setDatePublication(string $datePublication): self
     {
         $this->datePublication = $datePublication;
 

@@ -1,29 +1,31 @@
 <?php
-
 namespace App\Classes;
 
-use DateTime;
-
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+
 #[ORM\Entity()]
 class Photo {
     #[ORM\Id]
-    #[ORM\GeneratedValue()]
-    #[ORM\Column(type: 'integer')]
+    #[ORM\GeneratedValue]
+    #[ORM\Column(type:"integer")]
     private int $id;
-    #[ORM\Column()]
+
+    #[ORM\Column]
     private string $auteur;
-    #[ORM\Column()]
+
+    #[ORM\Column]
     private string $urlImage;
 
-    #[ORM\ManyToOne(targetEntity: Utilisateur::class, inversedBy: 'photos')]
-    private Utilisateur $utilisateur;    
+    #[ORM\ManyToOne(targetEntity:Utilisateur::class, inversedBy:"photos")]
+    private Utilisateur $utilisateur;
 
     public function __construct(string $auteur, string $urlImage){
         $this->auteur = $auteur;
         $this->urlImage = $urlImage;
     }
+
+    // Getters and setters...
+
 
     public function getId(): int {
         return $this->id;
