@@ -7,17 +7,17 @@ use Doctrine\ORM\ORMSetup;
 
 // Create a simple "default" Doctrine ORM configuration for Attributes
 $config = ORMSetup::createAttributeMetadataConfiguration(
-    paths: array(__DIR__."/src/classes"),
+    paths: array(__DIR__."./src/classes"),
     isDevMode: true,
 );
 
-// configuring the database connection
+// configuring the database connections
 $connection = DriverManager::getConnection(
 [
     'driver'    => 'pdo_mysql',
     'user'      => 'root',
     'password'  => '',
-    'dbname'    => 'va-php',
+    'dbname'    => 'va_php',
     'port'      => 3306
   ],
   $config

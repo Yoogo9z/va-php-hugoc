@@ -4,6 +4,7 @@ namespace App\Classes;
 
 use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity()]
 class Actualite
@@ -24,6 +25,11 @@ class Actualite
     private string $url;
     #[ORM\Column()]
     private string $imageUrl;
+
+        
+    #[ORM\ManyToMany(targetEntity : Utilisateur ::class, mappedBy : 'actualiteList')]
+    private Collection $utilisateurList;
+
 
     public function __construct(string $titre, string $contenu, DateTime $datePublication, string $auteur, string $url, string $imageUrl)
     {

@@ -4,7 +4,10 @@ namespace App\Classes;
 
 use DateTime;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\JoinTable;
 #[ORM\Entity()]
 class Utilisateur {
     #[ORM\Id]
@@ -22,7 +25,14 @@ class Utilisateur {
     #[ORM\Column()]
     private string $motDePasse;
     #[ORM\Column(type: 'array')]
-    private array $photos;
+    private array $photos;   
+    
+    #[ORM\ManyToMany(targetEntity : Actualite ::class, inversedBy : 'utilisateurList')]
+    #[JoinTable(name: 'favoris')]
+    private Collection $actualiteList;
+
+    #[ORM\OneToMany(targetEntity: Photo::class, mappedBy: 'utilisateur')]
+    private Collection $photo;
 
     public function __construct(string $nom, string $prenom, datetime $dateNaissance, string $email, string $motDePasse){
         $this->nom = $nom;
@@ -157,5 +167,4 @@ class Utilisateur {
 
         return $this;
     }
-    }
-    
+}
