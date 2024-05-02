@@ -26,26 +26,75 @@ class Photo {
 
     // Getters and setters...
 
-
-    public function getId(): int {
+    /**
+     * Get the value of id
+     */
+    public function getId(): int
+    {
         return $this->id;
-        }
-        public function setId(int $id): self {
+    }
+
+    /**
+     * Set the value of id
+     */
+    public function setId(int $id): self
+    {
         $this->id = $id;
+
         return $this;
-        }
-        public function getAuteur(): string {
+    }
+
+    /**
+     * Get the value of auteur
+     */
+    public function getAuteur(): string
+    {
         return $this->auteur;
-        }
-        public function setAuteur(string $auteur): self {
+    }
+
+    /**
+     * Set the value of auteur
+     */
+    public function setAuteur(string $auteur): self
+    {
         $this->auteur = $auteur;
+
         return $this;
-        }
-        public function getUrlImage(): string {
+    }
+
+    /**
+     * Get the value of urlImage
+     */
+    public function getUrlImage(): string
+    {
         return $this->urlImage;
-        }
-        public function setUrlImage(string $urlImage): self {
+    }
+
+    /**
+     * Set the value of urlImage
+     */
+    public function setUrlImage(string $urlImage): self
+    {
         $this->urlImage = $urlImage;
+
         return $this;
-        }
+    }
+
+    /**
+     * Get the value of utilisateur
+     */
+    public function getUtilisateur(): Utilisateur
+    {
+        return $this->utilisateur;
+    }
+
+    /**
+     * Set the value of utilisateur
+     */
+    public function setUtilisateur(Utilisateur $utilisateur): self
+    {
+        $this->utilisateur = $utilisateur;
+
+        return $this;
+    }
 }

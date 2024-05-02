@@ -4,7 +4,7 @@ include("header.php");
 ?>
 <h1>INSCRIPTION</h1>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h2 class="text-center">Remplissez le formulaire d'inscription</h2>

@@ -15,8 +15,6 @@ $actualites = $repository->findAll();
 
 <div class="container">
     <?php foreach ($actualites as $actualite) { ?>
-        <!-- <div class="row justify-content-center"> -->
-            <!-- <div class="col-md-4"> -->
                 <div class="card custom-card wd-2">
                     <img src="<?php echo $actualite->getImageUrl(); ?>" class="card-img-top img-fluid" alt="...">
                     <div class="card-body">
@@ -29,7 +27,5 @@ $actualites = $repository->findAll();
                         <a href="#" class="btn btn-primary">Bouton</a>
                     </div>
                 </div>
-            <!-- </div> -->
-        <!-- </div> -->
     <?php } ?>
 </div>
