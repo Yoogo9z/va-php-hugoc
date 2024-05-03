@@ -1,7 +1,10 @@
 <?php
 
 include("header.php");
+use App\Classes\Utilisateur;
+use Doctrine\ORM\EntityManagerInterface;
 ?>
+
 <h1>CONNEXION</h1>
 
 <div class="container-fluid">
@@ -23,3 +26,30 @@ include("header.php");
         </div>
     </div>
 </div>
+
+<?php 
+// Vérification que le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupération des valeurs du formulaire
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    
+    // Récupérer l'utilisateur par email depuis la base de données
+    $repository = $entityManager->getRepository(Utilisateur::class);
+    $utilisateur = $repository->findOneBy(['email' => $email]);
+
+    if ($utilisateur) {
+        // Vérifier si le mot de passe est correct
+        if (password_verify($password, $utilisateur->getMotDePasse())) {
+            // Rediriger l'utilisateur vers la page d'accueil après connexion réussie
+            header("Location: actualites.php");
+            exit;
+        } else {
+            echo "Mot de passe incorrect.";
+        }
+    } else {
+        echo "Utilisateur non trouvé.";
+    }
+} else {
+    echo "Le formulaire de connexion n'a pas été soumis.";
+}
