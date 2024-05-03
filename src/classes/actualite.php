@@ -2,10 +2,10 @@
 
 namespace App\Classes;
 
-// use string;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+
 #[ORM\Entity()]
 class Actualite
 {
@@ -25,11 +25,14 @@ class Actualite
     private string $url;
     #[ORM\Column()]
     private string $imageUrl;
+    #[ORM\Column()]
+    private string $credit;
+    #[ORM\Column()]
+    private string $comments;
 
-        
     #[ORM\ManyToMany(targetEntity: Utilisateur::class, mappedBy: 'actualiteList')]
-    private Collection $utilisateurList; 
-    // public function __construct(string $titre, string $contenu, string $datePublication, string $auteur, string $url, string $imageUrl)
+    private Collection $utilisateurList;
+    // public function __construct(string $titre, string $contenu, string $datePublication, string $auteur, string $url, string $imageUrl, string $credit, string $comments ,Collection $utilisateurList)
     // {
     //     $this->titre = $titre;
     //     $this->contenu = $contenu;
@@ -37,7 +40,13 @@ class Actualite
     //     $this->auteur = $auteur;
     //     $this->url = $url;
     //     $this->imageUrl = $imageUrl;
+    //     $this->credit = $credit;
+    //     $this->comments = $comments;
     // }
+    /**
+     * Get the value of id
+     */
+
     /**
      * Get the value of id
      */
@@ -160,6 +169,60 @@ class Actualite
     public function setImageUrl(string $imageUrl): self
     {
         $this->imageUrl = $imageUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of credit
+     */
+    public function getCredit(): string
+    {
+        return $this->credit;
+    }
+
+    /**
+     * Set the value of credit
+     */
+    public function setCredit(string $credit): self
+    {
+        $this->credit = $credit;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of comments
+     */
+    public function getComments(): string
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Set the value of comments
+     */
+    public function setComments(string $comments): self
+    {
+        $this->comments = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of utilisateurList
+     */
+    public function getUtilisateurList(): Collection
+    {
+        return $this->utilisateurList;
+    }
+
+    /**
+     * Set the value of utilisateurList
+     */
+    public function setUtilisateurList(Collection $utilisateurList): self
+    {
+        $this->utilisateurList = $utilisateurList;
 
         return $this;
     }

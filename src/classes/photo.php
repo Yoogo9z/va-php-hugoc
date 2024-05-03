@@ -19,10 +19,11 @@ class Photo {
     #[ORM\ManyToOne(targetEntity:Utilisateur::class, inversedBy:"photos")]
     private Utilisateur $utilisateur;
 
-    public function __construct(string $auteur, string $urlImage){
-        $this->auteur = $auteur;
-        $this->urlImage = $urlImage;
-    }
+    // public function __construct(string $auteur, string $urlImage){
+    //     $this->auteur = $auteur;
+    //     $this->urlImage = $urlImage;
+    //     $this->utilisateur = new Utilisateur();
+    // }
 
     // Getters and setters...
 

@@ -31,21 +31,25 @@ class Utilisateur
     #[ORM\Column]
     private string $motDePasse;
 
-    #[ORM\OneToMany(targetEntity: Photo::class, mappedBy: "utilisateur")]
+    #[ORM\OneToMany(targetEntity: Photo::class, mappedBy: "utilisateur", cascade: ["persist"])]
     private Collection $photos;
 
     #[ORM\ManyToMany(targetEntity: Actualite::class, inversedBy: 'utilisateurList')]
     #[JoinTable(name: 'favoris')]
     private Collection $actualiteList;
-
-
-    public function __construct(string $nom, string $prenom, DateTime $dateNaissance, string $email, string $motDePasse)
+    
+    // public function __construct(string $nom, string $prenom, DateTime $dateNaissance, string $email, string $motDePasse)
+    // {
+    //     // $this->nom = $nom;
+    //     // $this->prenom = $prenom;
+    //     // $this->dateNaissance = $dateNaissance;
+    //     // $this->email = $email;
+    //     // $this->motDePasse = $motDePasse;
+    //     $this->photos = new ArrayCollection();
+    // }
+    public function __construct()
     {
-        $this->nom = $nom;
-        $this->prenom = $prenom;
-        $this->dateNaissance = $dateNaissance;
-        $this->email = $email;
-        $this->motDePasse = $motDePasse;
+
         $this->photos = new ArrayCollection();
     }
 

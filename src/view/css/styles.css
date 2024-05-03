@@ -4,7 +4,8 @@ ul {
   padding: 0px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
-body{
+
+body {
   background: #dfdfdf;
 }
 
@@ -12,7 +13,7 @@ body{
 
 .header {
   margin: 0 auto;
-  padding: 25px 0px 25px 40px;
+  padding: 25px 0px 25px 100px;
   width: 100%;
   background: #4F3456;
 }
@@ -58,9 +59,10 @@ form button a {
   color: white !important;
 }
 
-.btn.btn-primary.btn-block {
+.btn.btn-block {
   background: #7baa2e;
   border: none;
+  color: white;
 }
 
 .inscription {
@@ -83,7 +85,11 @@ form button a {
   margin-bottom: 80px;
 }
 
-.container, .container-lg, .container-md, .container-sm, .container-xl {
+.container,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
   max-width: 1140px;
   display: flex;
   flex-wrap: wrap;
@@ -98,7 +104,7 @@ form button a {
 
   body {
     background: linear-gradient(45deg, aliceblue, #ecd6ff);
-}
+  }
 
   /* HEADER */
 
@@ -119,10 +125,12 @@ form button a {
 
   h1 {
     font-family: math;
+    padding: 0px;
   }
 
-  .btn.btn-primary.btn-block {
+  .btn.btn-block {
     background: #df9000;
+    color: white;
   }
 
   button,
@@ -132,5 +140,21 @@ form button a {
 
   input#photo_profil {
     box-shadow: none;
+  }
+
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+  }
+
+  .card.custom-card {
+    width: 90%;
+    margin-bottom: 80px;
   }
 }
