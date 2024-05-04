@@ -16,10 +16,12 @@ body {
   padding: 25px 0px 25px 100px;
   width: 100%;
   background: #4F3456;
+  display: flex;
 }
 
 .header ul {
   display: flex;
+  width: 50%;
 }
 
 .header ul li a {
@@ -40,6 +42,26 @@ body {
 .header ul li {
   list-style-type: none;
 }
+
+.connecte {
+  color: white;
+  text-shadow: 0 0 4px #00dcff96;
+}
+
+.session {
+  width: 50%;
+  text-align: right;
+  padding: 0px 100px 0px 0px;
+  /* font-weight: bold; */
+  font-style: italic;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.header ul li a.active {
+  color: rgb(189, 119, 255);
+}
+
+
 
 /* CONTENU PAGES */
 
@@ -108,16 +130,33 @@ form button a {
 
   /* HEADER */
 
+  .session {
+    width: 100%;
+    text-align: center;
+    padding: 25px 0px 0px 0px;
+  }
+
   .header {
     width: 100%;
     background: linear-gradient(45deg, #d53838, #5b0000);
-    height: 80px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 0px;
   }
 
   .header ul {
     display: flex;
     justify-content: space-around;
+    width: 100%;
   }
+
+  .header ul li a.active {
+    color: rgb(255 214 0);
+  }
+
 
   label {
     font-style: italic;

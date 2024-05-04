@@ -1,8 +1,6 @@
 <?php
-
+session_start();
 include("header.php");
-use App\Classes\Utilisateur;
-use Doctrine\ORM\EntityManagerInterface;
 ?>
 
 <h1>CONNEXION</h1>
@@ -11,45 +9,52 @@ use Doctrine\ORM\EntityManagerInterface;
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h2 class="text-center">Entrez vos identifiants</h2>
-            <form>
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Entrez votre email">
+                    <input type="email" class="form-control" id="email" placeholder="Entrez votre email" name="email">
                 </div>
                 <div class="form-group">
                     <label for="password">Mot de passe</label>
-                    <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
+                    <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" name="password">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Connexion</button>
                 <button type="submit" class="btn btn-primary btn-block inscription"><a href="inscription.php">Inscription</a></button>
             </form>
+            <?php
+            $host = 'localhost';
+            $dbname = 'va_php';
+            $user = 'root';
+            $password = '';
+            try {
+                // Création d'une instance PDO
+                $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
+                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                if (isset($_POST['email'])) {
+                    $email = $_POST['email'];
+                    // Préparation de la requête SQL
+                    $stmt = $pdo->prepare('SELECT * FROM utilisateur WHERE email = :email');
+                    $stmt->bindValue(':email', $email);
+                    // Exécution de la requête SQL
+                    $stmt->execute();
+                    // Récupération du résultat de la requête SQL
+                    $utilisateur = $stmt->fetch(PDO::FETCH_ASSOC);
+                    if ($utilisateur && password_verify($_POST['password'], $utilisateur['motDePasse'])) {
+                        // Connexion réussie
+                        $_SESSION['user_id'] = $utilisateur['id'];
+                        $_SESSION['user_nom'] = $utilisateur['nom'];
+                        $_SESSION['user_prenom'] = $utilisateur['prenom'];
+                        header('Location: actualites.php');
+                        exit();
+                    } else {
+                        // Connexion échouée
+                        echo 'Adresse e-mail ou mot de passe incorrect.';
+                    }
+                }
+            } catch (PDOException $e) {
+                echo 'Erreur de connexion à la base de données : ' . $e->getMessage();
+            }
+            ?>
         </div>
     </div>
 </div>
-
-<?php 
-// Vérification que le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupération des valeurs du formulaire
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    
-    // Récupérer l'utilisateur par email depuis la base de données
-    $repository = $entityManager->getRepository(Utilisateur::class);
-    $utilisateur = $repository->findOneBy(['email' => $email]);
-
-    if ($utilisateur) {
-        // Vérifier si le mot de passe est correct
-        if (password_verify($password, $utilisateur->getMotDePasse())) {
-            // Rediriger l'utilisateur vers la page d'accueil après connexion réussie
-            header("Location: actualites.php");
-            exit;
-        } else {
-            echo "Mot de passe incorrect.";
-        }
-    } else {
-        echo "Utilisateur non trouvé.";
-    }
-} else {
-    echo "Le formulaire de connexion n'a pas été soumis.";
-}

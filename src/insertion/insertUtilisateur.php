@@ -15,15 +15,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $utilisateur->setEmail($_POST['email']);
         $utilisateur->setMotDePasse(password_hash($_POST['password'], PASSWORD_DEFAULT));
         $photo_profil = $_FILES['photo_profil'];
-        $photo_url = 'C:\wamp64\www\va-php-hugoc\images' . $photo_profil['name'];
+        $photo_url =  $photo_profil['name'];
+        $upload_directory = 'C:\wamp64\www\va-php-hugoc\images\\';
+        $photo_url = $upload_directory . $photo_profil['name'];
         $is_uploaded = move_uploaded_file($photo_profil['tmp_name'], $photo_url);
         $photo = new Photo();
         $photo->setAuteur($utilisateur->getNom() . ' ' . $utilisateur->getPrenom());
         $photo->setUrlImage($photo_url);
         $photo->setUtilisateur($utilisateur);
         $utilisateur->getPhotos()->add($photo);
-        $entityManager->persist($utilisateur);
-        $entityManager->flush();
+        // $entityManager->persist($utilisateur);
+        // $entityManager->flush();
         echo "Utilisateur inséré avec succès.";
     } else {
         echo "Tous les champs obligatoires doivent être remplis.";

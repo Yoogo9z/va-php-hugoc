@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 include("header.php");
 require_once("../../bootstrap.php");
 
@@ -25,7 +27,7 @@ $actualites = $repository->findAll();
                             <p class="card-text"><small class="text-muted">Auteur: <?php echo $actualite->getAuteur(); ?></small></p>
                         <?php } ?>
                         <p class="card-text"><small class="text-muted">Publié le <?php echo $actualite->getDatePublication(); ?></small></p>
-                        <a href="#" class="btn btn-primary">Bouton</a>
+                        <a href="#" class="btn lire">Lire l'article</a>
                     </div>
                 </div>
     <?php } ?>
