@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css" media="all">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="js/animation.js"></script>
     <title>Header</title>
 </head>
 
@@ -29,6 +33,7 @@
             <div class="session"><span class="connecte">Connecté en tant que <?php echo $_SESSION['user_nom'] . ' ' . $_SESSION['user_prenom']; ?></span></div>
         <?php endif; ?>
     </div>
+
 </body>
 
 </html>

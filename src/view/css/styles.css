@@ -61,8 +61,6 @@ body {
   color: rgb(189, 119, 255);
 }
 
-
-
 /* CONTENU PAGES */
 
 h1 {
@@ -91,6 +89,7 @@ form button a {
   background: #AB452E !important;
 }
 
+
 /* Actualités */
 
 .custom-card {
@@ -118,7 +117,16 @@ form button a {
   justify-content: space-between;
 }
 
+.btn.lire {
+	background: #5eac11;
+	color: white;
+}
 
+/* SCOOL JQUERY */
+
+.custom-card.wd-2{
+opacity: 0;
+}
 
 /* BREKPOINT 768px STYLE POUR MOBILE */
 
