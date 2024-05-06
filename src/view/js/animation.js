@@ -1,7 +1,8 @@
-// Reaction au Scroll
+// AFFICHAGE DES CARTE QUAND ON SCROLL
 
 
 $(document).ready(function () {
+
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
             $('.custom-card.wd-2').each(function (i) {
@@ -12,12 +13,10 @@ $(document).ready(function () {
             });
         }
     });
-});
+
+    // PLACEHOLDERS QUI S'ECRIVENT
 
 
-// INPUTS
-
-$(document).ready(function () {
     // Sélectionner tous les inputs avec un placeholder
     $('input[placeholder]').each(function () {
         // Créer une instance de Typed.js pour chaque input
@@ -31,8 +30,26 @@ $(document).ready(function () {
             showCursor: false,
             onComplete: function (self) {
                 // Supprimer le texte animé une fois l'animation terminée
-                self.cursor.remove();
+                self.el.value = '';
             }
         });
+    });  
+
+    // APPARITION DES BOUTONS SUR LA PAGE CONNEXION ET SUR LE FORMULAIRE D'INSCRIPTION
+
+    $(document).ready(function () {
+        $('.btn-block').addClass('apparait').animate({
+            marginLeft: '0'
+        }, 1300);
     });
+
+    $(document).ready(function () {
+        $('.btn-block.valider').addClass('apparait-bas').animate({
+            marginTop: '0'
+        }, 800, function() {
+            $(this).animate({
+                width: '100%'
+            }, 500);
+        }).delay(150);
+    });    
 });

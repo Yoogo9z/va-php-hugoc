@@ -37,6 +37,6 @@ include("header.php");
                     <input type="file" class="form-control-file" id="photo_profil" name="photo_profil" required>
                 </div>
 
-                <button type="submit" class="btn btn-block">Valider</button>
+                <button type="submit" class="btn btn-block valider">Valider</button>
             </form>
         </div>

@@ -52,7 +52,6 @@ body {
   width: 50%;
   text-align: right;
   padding: 0px 100px 0px 0px;
-  /* font-weight: bold; */
   font-style: italic;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -75,6 +74,7 @@ h2 {
 }
 
 /* Connexion */
+
 form button a {
   color: white !important;
 }
@@ -89,6 +89,30 @@ form button a {
   background: #AB452E !important;
 }
 
+.btn.btn-block {
+	background: #7baa2e;
+	border: none;
+	color: white;
+}
+
+.connexion {
+	margin-left: 1500px;
+}
+
+.inscription {
+	margin-left: -1500px;
+}
+
+/* INSCRIPTION */
+
+.valider {
+  margin-top: 150px;
+  width: 10%;
+}
+
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+	margin-bottom: 50px;
+}
 
 /* Actualités */
 
@@ -118,14 +142,14 @@ form button a {
 }
 
 .btn.lire {
-	background: #5eac11;
-	color: white;
+  background: #5eac11;
+  color: white;
 }
 
 /* SCOOL JQUERY */
 
-.custom-card.wd-2{
-opacity: 0;
+.custom-card.wd-2 {
+  opacity: 0;
 }
 
 /* BREKPOINT 768px STYLE POUR MOBILE */

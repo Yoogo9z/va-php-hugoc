@@ -18,7 +18,7 @@ include("header.php");
                     <label for="password">Mot de passe</label>
                     <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe" name="password">
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Connexion</button>
+                <button type="submit" class="btn btn-primary btn-block connexion">Connexion</button>
                 <button type="submit" class="btn btn-primary btn-block inscription"><a href="inscription.php">Inscription</a></button>
             </form>
             <?php

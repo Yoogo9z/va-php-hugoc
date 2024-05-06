@@ -24,8 +24,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $photo->setUrlImage($photo_url);
         $photo->setUtilisateur($utilisateur);
         $utilisateur->getPhotos()->add($photo);
-        // $entityManager->persist($utilisateur);
-        // $entityManager->flush();
+        $entityManager->persist($utilisateur);
+        $entityManager->flush();
         echo "Utilisateur inséré avec succès.";
     } else {
         echo "Tous les champs obligatoires doivent être remplis.";
