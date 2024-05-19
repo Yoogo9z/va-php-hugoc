@@ -1,5 +1,6 @@
 <?php
 require_once "vendor/autoload.php";
+require_once "db_config.php";
 
 use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\EntityManager;
@@ -13,15 +14,15 @@ $config = ORMSetup::createAttributeMetadataConfiguration(
 
 // configuring the database connections
 $connection = DriverManager::getConnection(
-[
-    'driver'    => 'pdo_mysql',
-    'user'      => 'root',
-    'password'  => '',
-    'dbname'    => 'va_php',
-    'port'      => 3306
-  ],
-  $config
-);
+  [
+      'driver'    => DB_DRIVER,
+      'user'      => DB_USER,
+      'password'  => DB_PASSWORD,
+      'dbname'    => DB_NAME,
+      'port'      => DB_PORT
+    ],
+    $config
+  );
 
 // obtaining the entity manager
 $entityManager = new EntityManager($connection, $config);

@@ -2,7 +2,7 @@
 
 session_start();
 
-include("header.php");
+require_once dirname(__FILE__) . '/header.php';
 
 ?>
 <h1>INSCRIPTION</h1>
@@ -11,7 +11,7 @@ include("header.php");
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h2 class="text-center">Remplissez le formulaire d'inscription</h2>
-            <form method="post" action="../insertion/insertUtilisateur.php" enctype="multipart/form-data">
+            <form method="post" action="../insertion/insertUtilisateur.php" enctype="multipart/form-data" id="inscriptionForm">
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input type="text" class="form-control" id="nom" placeholder="Entrez votre nom" name="nom" required>
@@ -35,8 +35,11 @@ include("header.php");
                 <div class="form-group">
                     <label for="photo_profil">Photo de profil</label>
                     <input type="file" class="form-control-file" id="photo_profil" name="photo_profil" required>
+                    <small id="photoHelp" class="form-text text-muted">Veuillez sélectionner une image au format JPG, JPEG, PNG ou GIF.</small>
                 </div>
 
-                <button type="submit" class="btn btn-block valider">Valider</button>
+                <button type="submit" class="btn btn-block valider" id="submitButton" disabled>Valider</button>
             </form>
         </div>
+    </div>
+</div>

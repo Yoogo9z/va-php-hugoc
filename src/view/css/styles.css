@@ -152,6 +152,15 @@ form button a {
   opacity: 0;
 }
 
+/* AUTRE */
+
+p.txt-accueil {
+  display: flex;
+  text-align: center !important;
+  font-size: 24px !important;
+  justify-content: center;
+}
+
 /* BREKPOINT 768px STYLE POUR MOBILE */
 
 @media (max-width: 768px) {

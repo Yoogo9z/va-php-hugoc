@@ -1,6 +1,6 @@
 <?php
 session_start();
-include("header.php");
+require_once dirname(__FILE__) . '/header.php';
 ?>
 
 <h1>CONNEXION</h1>

@@ -12,18 +12,19 @@
 
 <body>
     <div class="header">
-    <ul>
-    <li><a href="actualites.php" <?php if (basename($_SERVER['PHP_SELF']) == 'actualites.php') echo 'class="active"'; ?>>Actualités</a></li>
-    <?php if (isset($_SESSION['user_id'])) : ?>
-        <!-- Afficher le bouton de déconnexion -->
-        <li><a href="deconnexion.php">Déconnexion</a></li>
-    <?php else : ?>
-        <!-- Afficher le lien de connexion -->
-        <li><a href="connexion.php" <?php if (basename($_SERVER['PHP_SELF']) == 'connexion.php') echo 'class="active"'; ?>>Connexion</a></li>
-        <!-- Afficher le lien d'inscription uniquement si l'utilisateur n'est pas connecté -->
-        <li><a href="inscription.php" <?php if (basename($_SERVER['PHP_SELF']) == 'inscription.php') echo 'class="active"'; ?>>Inscription</a></li>
-    <?php endif; ?>
-</ul>
+        <ul>
+            <li><a href="index.php" <?php if (basename($_SERVER['PHP_SELF']) == 'index.php') echo 'class="active"'; ?>>Accueil</a></li>
+            <li><a href="actualites.php" <?php if (basename($_SERVER['PHP_SELF']) == 'actualites.php') echo 'class="active"'; ?>>Actualités</a></li>
+            <?php if (isset($_SESSION['user_id'])) : ?>
+                <!-- Afficher le bouton de déconnexion -->
+                <li><a href="deconnexion.php">Déconnexion</a></li>
+            <?php else : ?>
+                <!-- Afficher le lien de connexion -->
+                <li><a href="connexion.php" <?php if (basename($_SERVER['PHP_SELF']) == 'connexion.php') echo 'class="active"'; ?>>Connexion</a></li>
+                <!-- Afficher le lien d'inscription uniquement si l'utilisateur n'est pas connecté -->
+                <li><a href="inscription.php" <?php if (basename($_SERVER['PHP_SELF']) == 'inscription.php') echo 'class="active"'; ?>>Inscription</a></li>
+            <?php endif; ?>
+        </ul>
 
         <?php if (isset($_SESSION['user_id'])) : ?>
             <!-- Afficher l'identifiant de l'utilisateur -->
@@ -31,7 +32,7 @@
         <?php endif; ?>
     </div>
 
-<!-- SCRIPTS JS -->
+    <!-- SCRIPTS JS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
     <script src="js/animation.js"></script>
